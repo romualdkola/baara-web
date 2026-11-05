@@ -289,6 +289,11 @@ export interface TradeRow {
   requestCount: number;
 }
 
+export interface TemporaryPassword {
+  accountId: number;
+  temporaryPassword: string;
+}
+
 export interface Invited {
   staff: StaffView;
   temporaryPassword: string;

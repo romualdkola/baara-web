@@ -22,6 +22,7 @@ import {
   Stage,
   StaffRole,
   StaffView,
+  TemporaryPassword,
   TradeRow,
   VerificationStatus,
 } from './models';
@@ -104,6 +105,9 @@ export class AdminApi {
   }
   reactivate(accountId: number, note: string) {
     return this.post<AccountState>(`/accounts/${accountId}/reactivate`, { note: note || null });
+  }
+  resetPassword(accountId: number) {
+    return this.post<TemporaryPassword>(`/accounts/${accountId}/reset-password`, {});
   }
   addNote(accountId: number, note: string) {
     return this.post<AuditEntry>(`/accounts/${accountId}/notes`, { note });
