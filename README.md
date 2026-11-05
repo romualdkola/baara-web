@@ -41,10 +41,19 @@ npm run build
 ```
 
 ## Production
-`npm run build` produit `dist/baara-web/browser`, à servir comme un site statique (toute route inconnue renvoie
-`index.html`). L'adresse de l'API est dans `src/environments/environment.ts`. Côté API, autoriser le domaine du
-back-office avec la variable `APP_CORS_ALLOWED_ORIGINS` dans l'environnement Dokploy (par défaut, seul
-`http://localhost:4200` est accepté).
+Le `Dockerfile` construit l'app puis la sert avec nginx sur le port 80 (`deploy/nginx.conf`) : routes Angular
+renvoyées vers `index.html`, fichiers versionnés mis en cache un an, `index.html` jamais, en-têtes de sécurité (dont
+une CSP qui n'autorise que l'API de Baara et les polices Google). En ligne : https://admin-baara.grapeit.tech, déployé
+par Dokploy depuis `main`.
+
+```bash
+docker build -t baara-web .
+docker run -p 8090:80 baara-web
+```
+
+L'adresse de l'API est dans `src/environments/environment.ts` (et dans la CSP de `deploy/nginx.conf`). Côté API,
+autoriser le domaine du back-office avec la variable `APP_CORS_ALLOWED_ORIGINS` dans l'environnement Dokploy (par
+défaut, seul `http://localhost:4200` est accepté).
 
 ## Organisation du code
 - `src/app/core` : session (jetons dans le stockage de l'onglet, renouvellement automatique), routes de l'API admin,
