@@ -1,0 +1,43 @@
+.todo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 16px;
+  background: var(--sand);
+  color: var(--ink);
+  font-weight: 400;
+}
+.todo:hover {
+  color: var(--ink);
+  background: var(--line-soft);
+}
+.n {
+  width: 48px;
+  height: 48px;
+  flex: none;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 800;
+}
+.n.yellow {
+  background: var(--yellow);
+}
+.n.green {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+.grow {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.recent {
+  color: var(--ink);
+  font-weight: 400;
+}

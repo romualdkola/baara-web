@@ -1,0 +1,453 @@
+/* Piste A « Chaleureux et local » : terre cuite, vert manguier, jaune karité sur fond sable. */
+:root {
+  --terra: #b9461f;
+  --terra-dark: #8e3416;
+  --terra-light: #f6dccf;
+  --green: #1e5b44;
+  --green-dark: #164634;
+  --green-light: #d5e8de;
+  --yellow: #f2b33d;
+  --yellow-light: #fbe6b8;
+  --yellow-ink: #7a5200;
+  --ink: #2a1a12;
+  --ink-soft: #4a3628;
+  --muted: #6b5547;
+  --sand: #fbf3e8;
+  --line: #eadbc8;
+  --line-soft: #f0e4d4;
+  --white: #ffffff;
+  --display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --body: 'Figtree', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+a {
+  color: var(--terra);
+  font-weight: 700;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--terra-dark);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  margin: 0;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 800;
+}
+h2 {
+  font-size: 21px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 13px;
+}
+
+/* Mise en page des pages */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.page-head p {
+  margin: 4px 0 0;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+}
+.grid-kpi {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+}
+.spacer {
+  flex: 1;
+}
+
+/* Cartes */
+.card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.kpi {
+  border-radius: 22px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--white);
+}
+.kpi strong {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 800;
+}
+.kpi.terra {
+  background: var(--terra);
+  color: var(--white);
+}
+.kpi.green {
+  background: var(--green);
+  color: var(--white);
+}
+
+/* Boutons */
+.btn {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--white);
+  white-space: nowrap;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn.green {
+  background: var(--green);
+}
+.btn.terra {
+  background: var(--terra);
+}
+.btn.outline {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn.outline-terra {
+  background: var(--white);
+  color: var(--terra-dark);
+  border-color: var(--terra);
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--terra-dark);
+  border-color: transparent;
+}
+.btn.small {
+  height: 36px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+.btn.block {
+  width: 100%;
+  height: auto;
+  min-height: 52px;
+  padding: 10px 18px;
+  font-size: 16px;
+  white-space: normal;
+  text-align: center;
+}
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.tab:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+/* Onglets segmentés */
+.tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 4px;
+}
+.tab {
+  height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tab.on {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* Champs */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+input,
+select,
+textarea {
+  font-family: var(--body);
+  font-size: 15px;
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+  padding: 0 14px;
+  height: 48px;
+  outline: none;
+}
+textarea {
+  height: auto;
+  min-height: 84px;
+  padding: 10px 14px;
+  resize: vertical;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--green);
+}
+.search {
+  height: 46px;
+  min-width: 240px;
+  flex: 1 1 240px;
+  max-width: 420px;
+  border: 0;
+}
+.code-input {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 8px;
+  text-align: center;
+  height: 64px;
+}
+
+/* Pastilles de statut */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  background: var(--line);
+  color: var(--ink-soft);
+}
+.pill.green {
+  background: var(--green);
+  color: var(--white);
+}
+.pill.green-soft {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+.pill.yellow {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.pill.yellow-soft {
+  background: var(--yellow-light);
+  color: var(--yellow-ink);
+}
+.pill.terra {
+  background: var(--terra);
+  color: var(--white);
+}
+.pill.terra-soft {
+  background: var(--terra-light);
+  color: var(--terra-dark);
+}
+.pill.ink {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* Tableaux */
+.table-wrap {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 8px 16px;
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 720px;
+}
+th {
+  text-align: left;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px;
+}
+td {
+  padding: 12px;
+  border-top: 1px solid var(--line-soft);
+  vertical-align: middle;
+}
+tr.clickable {
+  cursor: pointer;
+}
+tr.clickable:hover td {
+  background: var(--sand);
+}
+.cell-main {
+  font-weight: 700;
+}
+.cell-sub {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Avatars à initiales */
+.avatar {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  background: var(--yellow-light);
+  color: var(--yellow-ink);
+}
+.avatar.big {
+  width: 64px;
+  height: 64px;
+  border-radius: 22px;
+  font-family: var(--display);
+  font-size: 22px;
+}
+
+/* Lignes de liste (historique, missions, avis) */
+.list-line {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.list-line:last-child {
+  border-bottom: 0;
+}
+.list-line .grow {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Messages */
+.notice {
+  border-radius: 18px;
+  padding: 14px 16px;
+  font-weight: 600;
+  background: var(--yellow-light);
+  color: var(--yellow-ink);
+}
+.notice.terra {
+  background: var(--terra-light);
+  color: var(--terra-dark);
+}
+.notice.green {
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+.empty {
+  padding: 32px;
+  text-align: center;
+  color: var(--muted);
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Fenêtre de confirmation */
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(42, 26, 18, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 50;
+}
+.dialog {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 24px;
+  width: min(480px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}

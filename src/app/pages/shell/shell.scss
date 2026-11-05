@@ -1,0 +1,125 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.side {
+  flex: 1 1 240px;
+  max-width: 100%;
+  background: var(--ink);
+  color: #f5e9da;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+@media (min-width: 900px) {
+  .side {
+    max-width: 260px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f5e9da;
+}
+.mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: var(--terra);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 800;
+}
+.name {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+.name small,
+.who small {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 500;
+  color: #cdb8a3;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+nav a {
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  color: #f5e9da;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav a:hover {
+  background: #3a2a20;
+  color: var(--white);
+}
+nav a.on {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.count {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--terra);
+  color: var(--white);
+  font-size: 12px;
+}
+.me {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #4a3628;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.me .avatar {
+  background: var(--yellow);
+  color: var(--ink);
+}
+.who {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.who strong {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.light {
+  color: #f5e9da;
+  border-color: #6b5547;
+}
+.content {
+  flex: 999 1 560px;
+  min-width: 0;
+  padding: 32px 40px;
+}
+@media (max-width: 700px) {
+  .content {
+    padding: 24px 16px;
+  }
+}
